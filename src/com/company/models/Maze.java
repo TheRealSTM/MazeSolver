@@ -19,4 +19,8 @@ public class Maze {
         System.out.println("The current maze is:");
         grid.stream().forEach(System.out::println);
     }
+
+    public boolean isEndingPosition(MazePosition currentPosition) {
+        return (currentPosition.getRowPos() == endPos.getRowPos() && currentPosition.getColumnPos() == endPos.getColumnPos());
+    }
 }

@@ -4,16 +4,12 @@ import com.company.models.Maze;
 import com.company.taskSolvers.LegalMazeSolver;
 import com.company.taskSolvers.OptimalSolutionSolver;
 import com.company.taskSolvers.SolutionExistsSolver;
-import com.company.taskSolvers.TeleportingMazeSolver;
 import com.company.utilities.MazeReader;
-
-import java.util.Scanner;
 
 public class Main {
     final static LegalMazeSolver legalMazeSolver = new LegalMazeSolver();
     final static OptimalSolutionSolver optimalSolutionSolver = new OptimalSolutionSolver();
     final static SolutionExistsSolver solutionExistsSolver = new SolutionExistsSolver();
-    final static TeleportingMazeSolver teleportingMazeSolver = new TeleportingMazeSolver();
 
     public static void main(String[] args) {
         String task = args[0];
@@ -36,10 +32,6 @@ public class Main {
             case "3":
                 System.out.println("Attempting to find the maze has an optimal solution.");
                 result = optimalSolutionSolver.solveMaze(maze);
-                break;
-            case "4":
-                System.out.println("Attempting to find the teleporting maze's optimal solution.");
-                result = teleportingMazeSolver.solveMaze(maze);
                 break;
             default:
                 System.out.println("Solver doesn't know how to solve.");
