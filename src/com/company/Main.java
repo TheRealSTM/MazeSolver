@@ -22,23 +22,24 @@ public class Main {
             return;
         }
         Maze maze = MazeReader.readMaze();
+        maze.printMaze();
         String result = "No solution found.";
         switch (task) {
             case "1":
                 System.out.println("Attempting to determine if the maze is legal.");
-                result = legalMazeSolver.solveMaze();
+                result = legalMazeSolver.solveMaze(maze);
                 break;
             case "2":
                 System.out.println("Attempting to determine if the maze has a solution.");
-                result = solutionExistsSolver.solveMaze();
+                result = solutionExistsSolver.solveMaze(maze);
                 break;
             case "3":
                 System.out.println("Attempting to find the maze has an optimal solution.");
-                result = optimalSolutionSolver.solveMaze();
+                result = optimalSolutionSolver.solveMaze(maze);
                 break;
             case "4":
                 System.out.println("Attempting to find the teleporting maze's optimal solution.");
-                result = teleportingMazeSolver.solveMaze();
+                result = teleportingMazeSolver.solveMaze(maze);
                 break;
             default:
                 System.out.println("Solver doesn't know how to solve.");
