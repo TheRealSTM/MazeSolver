@@ -30,7 +30,7 @@ public class Main {
                 result = solutionExistsSolver.solveMaze(maze);
                 break;
             case "3":
-                System.out.println("Attempting to find the maze has an optimal solution.");
+                System.out.println("Attempting to find the maze's optimal solution.");
                 result = optimalSolutionSolver.solveMaze(maze);
                 break;
             default:
