@@ -1,9 +1,11 @@
 package com.company;
 
+import com.company.models.Maze;
 import com.company.taskSolvers.LegalMazeSolver;
 import com.company.taskSolvers.OptimalSolutionSolver;
 import com.company.taskSolvers.SolutionExistsSolver;
 import com.company.taskSolvers.TeleportingMazeSolver;
+import com.company.utilities.MazeReader;
 
 import java.util.Scanner;
 
@@ -14,8 +16,12 @@ public class Main {
     final static TeleportingMazeSolver teleportingMazeSolver = new TeleportingMazeSolver();
 
     public static void main(String[] args) {
-
         String task = args[0];
+        if (!isValidTaskProvided(task)) {
+            System.out.println("Invalid task provided - task must be an integer between 1 and 4.");
+            return;
+        }
+        Maze maze = MazeReader.readMaze();
         String result = "No solution found.";
         switch (task) {
             case "1":
@@ -38,10 +44,10 @@ public class Main {
                 System.out.println("Solver doesn't know how to solve.");
         }
         System.out.println("Result: " + result);
-        Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNext()) {
-            System.out.println(scanner.nextLine());
-        }
-        scanner.close();
+
+    }
+
+    private static boolean isValidTaskProvided(String task) {
+        return task.length() == 1 && task.toCharArray()[0] >= '1' && task.toCharArray()[0] <= '4';
     }
 }
