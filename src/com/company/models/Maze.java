@@ -9,6 +9,8 @@ import java.util.List;
 @Data
 public class Maze {
     private final List<String> grid;
+    private final MazePosition startPos;
+    private final MazePosition endPos;
 
     public void printMaze() {
         if (grid == null) {
